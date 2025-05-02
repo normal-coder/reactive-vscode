@@ -74,9 +74,29 @@ export default defineConfig({
       provider: 'local',
     },
 
-    editLink: {
-      pattern: 'https://github.com/kermanx/reactive-vscode/edit/main/docs/:path',
+    returnToTopLabel: '返回顶部',
+    darkModeSwitchTitle: '切换到深色主题',
+    lightModeSwitchTitle: '切换到浅色主题',
+
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
     },
+
+    editLink: {
+      text: '在 GitHub 上编辑此页',
+      pattern: 'https://github.com/normal-coder/reactive-vscode/edit/zh-cn/docs/:path',
+    },
+
+    lastUpdated: {
+      text: '最后更新于',
+    },
+
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2019-present Evan You',
+    },
+
   },
   head: [['link', { rel: 'icon', href: '/reactive-vscode/favicon.ico' }]],
   lastUpdated: true,

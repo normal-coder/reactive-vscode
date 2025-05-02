@@ -123,7 +123,7 @@ function toggleSort(method: string) {
   <div h="1px" bg="$vp-c-divider" m="t-4" />
   <div flex="~" class="children:my-auto" p="2">
     <i i-carbon-search m="r-2" opacity="50" />
-    <input v-model="search" class="w-full" type="text" role="search" placeholder="Search...">
+    <input v-model="search" class="w-full" type="text" role="search" placeholder="搜索...">
   </div>
   <div h="1px" bg="$vp-c-divider" m="b-4" />
   <div flex="~ col gap-3" class="relative" p="t-5">
