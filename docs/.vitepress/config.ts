@@ -160,11 +160,11 @@ export default defineConfig({
   },
 
   locales: {
-    root: {
+    en: {
       label: `🇺🇸 English`,
       link: 'https://reactive-vscode.dev/',
     },
-    zh: {
+    root: {
       label: '🇨🇳 简体中文',
       link: 'https://cn.reactive-vscode.dev/',
     },
