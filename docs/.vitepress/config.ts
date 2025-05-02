@@ -13,53 +13,53 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Reactive VSCode',
-  description: 'Develop VSCode extension with Vue Reactivity API',
+  description: '使用 Vue 响应式 API 开发 VSCode 扩展',
   base: '/reactive-vscode/',
   lang: 'en-US',
   themeConfig: {
     logo: '/logo.svg',
 
     nav: [
-      { text: 'Guide', link: '/guide/' },
-      { text: 'Functions', link: '/functions' },
-      { text: 'Examples', link: '/examples/' },
+      { text: '指南', link: '/guide/' },
+      { text: '函数', link: '/functions' },
+      { text: '示例', link: '/examples/' },
     ],
 
     sidebar: {
       '/guide': [
         {
-          text: 'Guide',
+          text: '指南',
           items: [
-            { text: 'Why reactive-vscode', link: '/guide/why' },
-            { text: 'Getting Started', link: '/guide/' },
-            { text: 'Extension', link: '/guide/extension' },
-            { text: 'Commands', link: '/guide/command' },
-            { text: 'Views', link: '/guide/view' },
-            { text: 'Configurations', link: '/guide/config' },
-            { text: 'Editor & Document', link: '/guide/editor' },
-            { text: 'Window & Workspace', link: '/guide/window' },
-            { text: 'Terminals', link: '/guide/terminal' },
-            { text: 'Custom contexts', link: '/guide/context' },
+            { text: '为什么选择 reactive-vscode', link: '/guide/why' },
+            { text: '开始使用', link: '/guide/' },
+            { text: '扩展', link: '/guide/extension' },
+            { text: '命令', link: '/guide/command' },
+            { text: '视图', link: '/guide/view' },
+            { text: '配置', link: '/guide/config' },
+            { text: '编辑器和文档', link: '/guide/editor' },
+            { text: '窗口和工作区', link: '/guide/window' },
+            { text: '终端', link: '/guide/terminal' },
+            { text: '自定义上下文', link: '/guide/context' },
             { text: 'Disposables', link: '/guide/disposable' },
-            { text: 'Events', link: '/guide/event' },
-            { text: 'VueUse Integration', link: '/guide/vueuse' },
+            { text: '事件', link: '/guide/event' },
+            { text: 'VueUse 集成', link: '/guide/vueuse' },
           ],
         },
         {
           items: [
-            { text: 'Examples', link: '/examples/' },
+            { text: '示例', link: '/examples/' },
           ],
         },
       ],
       '/examples': [
         {
-          text: 'Examples',
+          text: '示例',
           items: [
-            { text: 'Index', link: '/examples/' },
+            { text: '索引', link: '/examples/' },
             { text: 'Hello Counter', link: '/examples/hello-counter/' },
-            { text: 'Editor Decoration', link: '/examples/editor-decoration/' },
-            { text: 'Theme Detector', link: '/examples/theme-detector/' },
-            { text: 'FS Watcher', link: '/examples/fs-watcher/' },
+            { text: '编辑器装饰', link: '/examples/editor-decoration/' },
+            { text: '主题检测器', link: '/examples/theme-detector/' },
+            { text: '文件系统监听器', link: '/examples/fs-watcher/' },
           ],
         },
       ],
