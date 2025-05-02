@@ -1,3 +1,3 @@
-# Functions
+# 函数 { #functions }
 
 <FunctionsList />
