@@ -1,12 +1,12 @@
-# VueUse Integration
+# VueUse 集成 {#vueuse-integration}
 
-<ReactiveVscode /> provides an optional integration of [VueUse](https://vueuse.org/) for VSCode extension development.
+<ReactiveVscode /> 为 VSCode 扩展开发提供了一个可选的 [VueUse](https://vueuse.org/) 集成。
 
-This package contains a subset of VueUse functions that are compatible with the Node.js environment. This means functions that rely on the browser environment are removed.
+这个包包含了一部分与 Node.js 环境兼容的 VueUse 函数。这意味着依赖浏览器环境的函数已被移除。
 
-Also, this package uses Vue reactivity API from `npm::@reactive-vscode/reactivity` instead of `npm::vue-demi` package. This means functions that rely on Vue's rendering API are removed.
+另外，这个包使用 `npm::@reactive-vscode/reactivity` 替代了 `npm::vue-demi` 包来提供 Vue 响应式 API。这意味着依赖 Vue 渲染 API 的函数已被移除。
 
-## Usage
+## 使用方法 {#usage}
 
 ::: code-group
 
@@ -35,6 +35,6 @@ export = defineExtension(() => {
 })
 ```
 
-## Available Functions
+## 可用函数 {#available-functions}
 
-Every VueUse function that is compatible with the Node.js environment and doesn't require Vue's rendering API is available in this package. Check it out [`packages/vueuse/src/index.ts`](https://github.com/kermanx/reactive-vscode/blob/main/packages/vueuse/src/index.ts) for the full list.
+所有与 Node.js 环境兼容且不需要 Vue 渲染 API 的 VueUse 函数都可在此包中使用。查看 [`packages/vueuse/src/index.ts`](https://github.com/kermanx/reactive-vscode/blob/main/packages/vueuse/src/index.ts) 获取完整列表。
