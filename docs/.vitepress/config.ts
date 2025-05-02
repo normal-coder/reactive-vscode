@@ -14,8 +14,8 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Reactive VSCode',
   description: '使用 Vue 响应式 API 开发 VSCode 扩展',
-  base: '/reactive-vscode/',
-  lang: 'en-US',
+  base: '/',
+  lang: 'zh-CN',
   themeConfig: {
     logo: '/logo.svg',
 
