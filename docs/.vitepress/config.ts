@@ -158,4 +158,15 @@ export default defineConfig({
       }),
     ],
   },
+
+  locales: {
+    root: {
+      label: `🇺🇸 English`,
+      link: 'https://reactive-vscode.dev/',
+    },
+    zh: {
+      label: '🇨🇳 简体中文',
+      link: 'https://cn.reactive-vscode.dev/',
+    },
+  },
 })
