@@ -1,17 +1,17 @@
-# Extension
+# 扩展 {#extension}
 
-It's simple to create a VSCode extension with <ReactiveVscode />. You just need to define your extension code inside the `reactive::defineExtension` function, and export the returned `activate` and `deactivate` functions.
+使用 <ReactiveVscode /> 创建 VSCode 扩展非常简单。你只需要在 `reactive::defineExtension` 函数内定义你的扩展代码，并导出返回的 `activate` 和 `deactivate` 函数。
 
 ```ts
 import { defineExtension } from 'reactive-vscode'
 
 export = defineExtension(() => {
-  // Setup your extension here
+  // 在此设置你的扩展
 })
 ```
 
-::: details TypeScript Configuration <span class="i-vscode-icons:file-type-typescript-official text-2xl mt--1 ml-1"></span>
-VSCode extensions should be CommonJS modules. Since `export =` statement is not allowed in ESM, you need to add this in your `tsconfig.json` to make TypeScript happy if you use a Bundler like `tsup`.
+::: details TypeScript 配置 <span class="i-vscode-icons:file-type-typescript-official text-2xl mt--1 ml-1"></span>
+VSCode 扩展应该是 CommonJS 模块。由于 `export =` 语句在 ESM 中不允许使用，如果你使用如 `tsup` 这样的打包器，你需要在你的 `tsconfig.json` 中添加以下内容来使 TypeScript 满意。
 
 ```json
 {
@@ -22,35 +22,35 @@ VSCode extensions should be CommonJS modules. Since `export =` statement is not 
 }
 ```
 
-Or you can avoid the `export =` statement in this way:
+或者你可以通过这种方式避免使用 `export =` 语句：
 
 ```ts
 import { defineExtension } from 'reactive-vscode'
 const { activate, deactivate } = defineExtension(() => {
-  // Your extension code here
+  // 你的扩展代码
 })
 export { activate, deactivate }
 ```
 :::
 
-## The Setup Function
+## Setup 函数 {#the-setup-function}
 
-Like the `setup` function in Vue 3, the setup function in <ReactiveVscode /> is a function that defines how your extension should behave. When the extension is activated, this function will be called once.
+就像 Vue 3 中的 `setup` 函数一样，<ReactiveVscode /> 中的 setup 函数定义了你的扩展应该如何工作。当扩展被激活时，这个函数将被调用一次。
 
-You can do these things in the setup function:
+你可以在 setup 函数中做这些事情：
 
-- Register commands (via `reactive::useCommand` or `reactive::useCommands`)
-- Register views (covered in [the next section](./view.md))
-- Define other (reactive) logics (via `vue::watchEffect` or `vue::watch`, etc.)
-- Use other composables (like `reactive::useActiveTextEditor`)
+- 注册命令（通过 `reactive::useCommand` 或 `reactive::useCommands`）
+- 注册视图（在[下一节](./view.md)中介绍）
+- 定义其他（响应式）逻辑（通过 `vue::watchEffect` 或 `vue::watch` 等）
+- 使用其他组合式函数（如 `reactive::useActiveTextEditor`）
 
-Here is an example:
+这里是一个示例：
 
 <!-- eslint-disable import/first -->
 ```ts
 import type { Ref } from 'reactive-vscode'
 /**
- * Defined via `defineConfigs`
+ * 通过 `defineConfigs` 定义
  */
 declare const message: Ref<string>
 // ---cut---
@@ -60,7 +60,7 @@ import { useDemoTreeView } from './treeView'
 
 export = defineExtension(() => {
   const logger = useLogger('Reactive VSCode')
-  logger.info('Extension Activated')
+  logger.info('扩展已激活')
   logger.show()
 
   useCommand('reactive-vscode-demo.helloWorld', () => {
@@ -69,16 +69,16 @@ export = defineExtension(() => {
 
   const isDark = useIsDarkTheme()
   watchEffect(() => {
-    logger.info('Is Dark Theme:', isDark.value)
+    logger.info('是深色主题：', isDark.value)
   })
 
   useDemoTreeView()
 })
 ```
 
-## The Extension Context
+## 扩展上下文 {#the-extension-context}
 
-The [extension context](https://code.visualstudio.com/api/references/vscode-api#ExtensionContext) can be imported from `reactive-vscode`. It is a global `shallowRef` that contains the `vscode::ExtensionContext` object.
+[扩展上下文](https://code.visualstudio.com/api/references/vscode-api#ExtensionContext)可以从 `reactive-vscode` 导入。它是一个全局的 `shallowRef`，包含了 `vscode::ExtensionContext` 对象。
 
 ```ts
 import { extensionContext } from 'reactive-vscode'
@@ -89,4 +89,4 @@ extensionContext.value?.extensionPath
 
 <div mt-8 />
 
-A common use case is to get the absolute path of some resources in your extension. In this case, you can use `reactive::useAbsolutePath` as a shortcut.
+一个常见的用例是获取扩展中某些资源的绝对路径。在这种情况下，你可以使用 `reactive::useAbsolutePath` 作为快捷方式。
