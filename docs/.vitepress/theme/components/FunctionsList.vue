@@ -73,7 +73,7 @@ function toggleSort(method: string) {
 <template>
   <div id="functions-list" class="grid grid-cols-[80px_auto] gap-y-2 mt-10">
     <div opacity="80" text="sm">
-      Category
+      分类
     </div>
     <div flex="~ wrap" gap="2" m="b-2">
       <button
@@ -87,11 +87,11 @@ function toggleSort(method: string) {
       </button>
     </div>
     <div opacity="80" text="sm">
-      Sort by
+      排序方式
     </div>
     <div flex="~ wrap" gap="2" m="b-2">
       <button v-if="search" class="select-button active">
-        Search
+        搜索
       </button>
       <button
         v-for="method of sortMethods"
@@ -107,16 +107,16 @@ function toggleSort(method: string) {
       </button>
     </div>
     <div opacity="80" text="sm">
-      Filters
+      过滤条件
     </div>
     <div flex="~ gap-4">
       <label class="checkbox">
         <input v-model="hasOriginal" type="checkbox">
-        <span>Has Original VSCode API</span>
+        <span>带有原始 VSCode API</span>
       </label>
       <label class="checkbox">
         <input v-model="isComposable" type="checkbox">
-        <span>Is a Composable</span>
+        <span>可组合</span>
       </label>
     </div>
   </div>
@@ -130,15 +130,13 @@ function toggleSort(method: string) {
     <div v-if="hasFilters" class="transition mb-2 opacity-60 absolute -top-3 right-0 z-10">
       <button class="select-button flex gap-1 items-center !px-2 !py-1" @click="resetFilters()">
         <i i-carbon-filter-remove />
-        Clear Filters
+        清除筛选条件
       </button>
     </div>
     <template v-for="(fn, idx) of result" :key="fn.name">
       <h3
-        v-if="showCategory && fn.category !== result[idx - 1]?.category"
-        opacity="60"
-        class="!text-16px !tracking-wide !m-0"
-        p="y-2"
+        v-if="showCategory && fn.category !== result[idx - 1]?.category" opacity="60"
+        class="!text-16px !tracking-wide !m-0" p="y-2"
       >
         {{ fn.category }}
       </h3>
@@ -146,11 +144,11 @@ function toggleSort(method: string) {
     </template>
     <div v-if="!result.length" text-center pt-6>
       <div m2 op50>
-        No result matched
+        没有找到匹配的结果
       </div>
       <button class="select-button flex-inline gap-1 items-center !px-2 !py-1" @click="resetFilters()">
         <i i-carbon-filter-remove />
-        Clear Filters
+        清除筛选条件
       </button>
     </div>
   </div>
