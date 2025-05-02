@@ -1,8 +1,8 @@
-# Disposables
+# Disposables {#disposables}
 
-Although most of the VSCode APIs are covered by <ReactiveVscode />, sometimes you still need to work with `vscode::Disposable`, which is also described in [VSCode API Patterns](https://code.visualstudio.com/api/references/vscode-api#disposables).
+尽管 <ReactiveVscode /> 已经覆盖了大多数 VSCode API，但有时你仍然需要使用 `vscode::Disposable`，这在 [VSCode API 模式](https://code.visualstudio.com/api/references/vscode-api#disposables)中也有描述。
 
-`reactive::useDisposable` accepts a disposable object and automatically disposes it when the current effect scope is disposed (e.g When the extension is deactivated, if `vscode::useDisposable` is called in the extension's setup function). `reactive::useDisposable` returns the disposable object itself as is.
+`reactive::useDisposable` 接受一个可释放对象，并在当前作用域被释放时自动释放它（例如，当扩展被禁用时，如果 `vscode::useDisposable` 在扩展的 setup 函数中调用）。`reactive::useDisposable` 会原样返回该可释放对象。
 
 ```ts
 import type { TextDocument } from 'vscode'
@@ -21,4 +21,4 @@ export = defineExtension(() => {
 })
 ```
 
-Note that you don't need to use `reactive::useDisposable` for disposables created by any <ReactiveVscode /> functions. They are automatically disposed when the current effect scope is disposed.
+注意，对于由任何 <ReactiveVscode /> 函数创建的可释放对象，你不需要使用 `reactive::useDisposable`。它们会在当前作用域被释放时自动释放。
