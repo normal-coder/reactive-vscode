@@ -1,8 +1,8 @@
-# Events
+# 事件 {#events}
 
-Although most of the VSCode APIs are covered by <ReactiveVscode />, sometimes you still need to create or listen to the primitive  [VSCode events](https://code.visualstudio.com/api/references/vscode-api#events).
+虽然大多数 VSCode API 已被 <ReactiveVscode /> 覆盖，但有时你仍然需要创建或监听原始的 [VSCode 事件](https://code.visualstudio.com/api/references/vscode-api#events)。
 
-`reactive::useEvent` converts a raw event to an auto-disposed event:
+`reactive::useEvent` 将原始事件转换为自动销毁的事件：
 
 ```ts
 import { defineExtension, useEvent } from 'reactive-vscode'
@@ -11,14 +11,14 @@ import { workspace } from 'vscode'
 const onDidCreateFiles = useEvent(workspace.onDidCreateFiles)
 
 export = defineExtension(() => {
-  // No need to dispose the event
+  // 无需手动销毁事件
   onDidCreateFiles((e) => {
-    console.log('Files created:', e.files)
+    console.log('创建的文件：', e.files)
   })
 })
 ```
 
-`reactive::useEventEmitter` creates a friendly event emitter which still extends `vscode::EventEmitter`:
+`reactive::useEventEmitter` 创建一个友好的事件发射器，它仍然继承自 `vscode::EventEmitter`：
 
 <!-- eslint-disable import/first -->
 ```ts
@@ -28,10 +28,10 @@ declare function someVscodeApi(options: { onSomeEvent: Event<string> }): void
 import { defineExtension, useEventEmitter } from 'reactive-vscode'
 
 export = defineExtension(() => {
-  const myEvent = useEventEmitter<string>([/* optional listenrs */])
+  const myEvent = useEventEmitter<string>([/* 可选的监听器 */])
 
   myEvent.addListener((msg) => {
-    console.log(`Received message: ${msg}`)
+    console.log(`收到消息：${msg}`)
   })
 
   myEvent.fire('Hello, World!')
@@ -42,7 +42,7 @@ export = defineExtension(() => {
 })
 ```
 
-You can also convert a raw event to a friendly event emitter:
+你也可以将原始事件转换为友好的事件发射器：
 
 ```ts {6}
 import { defineExtension, useEventEmitter } from 'reactive-vscode'
@@ -50,6 +50,6 @@ import { EventEmitter } from 'vscode'
 
 export = defineExtension(() => {
   const rawEvent = new EventEmitter<string>()
-  const myEvent = useEventEmitter(rawEvent, [/* optional listenrs */])
+  const myEvent = useEventEmitter(rawEvent, [/* 可选的监听器 */])
 })
 ```
