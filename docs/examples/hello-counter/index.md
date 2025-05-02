@@ -2,9 +2,9 @@
 outline: false
 ---
 
-# Hello Counter
+# Hello 计数器 {#hello-counter}
 
-A simple example that shows how many times the user has called the commands.
+一个简单的示例，展示用户调用命令的次数。
 
 <ExampleFunctions :fns="[
   'useCommands',
@@ -15,6 +15,6 @@ A simple example that shows how many times the user has called the commands.
 
 <<< ./1.ts [<ReactiveVscode2 />]
 
-<<< ./2.ts [Original VSCode API]
+<<< ./2.ts [原始 VSCode API]
 
 :::

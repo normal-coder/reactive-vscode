@@ -2,9 +2,9 @@
 outline: false
 ---
 
-# FS Watcher
+# 文件系统监听器 {#fs-watcher}
 
-Watch a dynamic set of files via the VSCode Watcher API.
+通过 VSCode Watcher API 监听一组动态的文件。
 
 <ExampleFunctions :fns="[
   'useFsWatcher',
@@ -15,6 +15,6 @@ Watch a dynamic set of files via the VSCode Watcher API.
 
 <<< ./1.ts [<ReactiveVscode2 />]
 
-<<< ./2.ts [Original VSCode API]
+<<< ./2.ts [原始 VSCode API]
 
 :::

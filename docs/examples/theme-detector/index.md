@@ -2,9 +2,9 @@
 outline: false
 ---
 
-# Theme Detector
+# 主题检测器 {#theme-detector}
 
-Detects the user's theme, and show a message accordingly.
+检测用户的主题，并显示相应的消息。
 
 <ExampleFunctions :fns="[
   'useActiveColorTheme',
@@ -15,6 +15,6 @@ Detects the user's theme, and show a message accordingly.
 
 <<< ./1.ts [<ReactiveVscode2 />]
 
-<<< ./2.ts [Original VSCode API]
+<<< ./2.ts [原始 VSCode API]
 
 :::

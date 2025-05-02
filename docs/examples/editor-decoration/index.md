@@ -2,9 +2,9 @@
 outline: false
 ---
 
-# Editor Decoration
+# 编辑器装饰 {#editor-decoration}
 
-A simple example that adds decorations to the active editor depending on the configuration.
+一个简单的示例，根据配置为活动编辑器添加装饰。
 
 <ExampleFunctions :fns="[
   'defineConfigs',
@@ -15,6 +15,6 @@ A simple example that adds decorations to the active editor depending on the con
 
 <<< ./1.ts [<ReactiveVscode2 />]
 
-<<< ./2.ts [Original VSCode API]
+<<< ./2.ts [原始 VSCode API]
 
 :::
