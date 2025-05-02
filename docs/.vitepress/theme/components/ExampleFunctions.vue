@@ -10,7 +10,7 @@ const m = props.fns.map(n => metadata.functions.find(m => m.name === n)!)
 <template>
   <div pb-3 class="example-functions">
     <h4 mb--3>
-      Used functions
+      使用的函数
     </h4>
     <ul>
       <li v-for="fn in m" :key="fn.name">
