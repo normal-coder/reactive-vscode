@@ -1,10 +1,10 @@
-# Configurations
+# 配置 {#configurations}
 
-An extension can contribute extension-specific settings.
+一个扩展可以提供扩展特定的设置。
 
-## Define in Manifest <NonProprietary />
+## 在 Manifest 清单中定义 {#define-in-manifest}
 
-To define the settings in the `package.json`, you need to add the `contributes.configuration` field. The `configuration` field is an object that contains the configuration settings.
+要在 `package.json` 中定义设置，你需要添加 `contributes.configuration` 字段。`configuration` 字段是一个包含配置设置的对象。
 
 ```json
 {
@@ -15,12 +15,12 @@ To define the settings in the `package.json`, you need to add the `contributes.c
         "myExtension.enable": {
           "type": "boolean",
           "default": true,
-          "description": "Enable My Extension"
+          "description": "启用 My Extension"
         },
         "myExtension.greeting": {
           "type": ["string", "null"],
           "default": "Hello!",
-          "description": "Greeting messag. Set to null to disable"
+          "description": "问候消息。设置为 null 以禁用"
         }
       }
     }
@@ -28,13 +28,13 @@ To define the settings in the `package.json`, you need to add the `contributes.c
 }
 ```
 
-Visit the [official documentation](https://code.visualstudio.com/api/references/contribution-points#contributes.configuration) for more information.
+访问[官方文档](https://code.visualstudio.com/api/references/contribution-points#contributes.configuration)获取更多信息。
 
-## Use in Extension
+## 在扩展中使用 {#use-in-extension}
 
-To use the settings in the extension, you can use the `reactive::defineConfigs` or `reactive::defineConfigObject` function to define the configuration. The following examples are corresponding to the above configuration.
+要在扩展中使用设置，你可以使用 `reactive::defineConfigs` 或 `reactive::defineConfigObject` 函数来定义配置。以下示例对应上面的配置。
 
-### As Refs
+### 作为 Refs {#as-refs}
 
 ```ts
 import { defineConfigs } from 'reactive-vscode'
@@ -45,34 +45,33 @@ const { enable, greeting } = defineConfigs('your-extension', {
 })
 ```
 
-Note that you should always set the default value in the manifest file. `reactive::defineConfigs` does not provide default values.
+注意，你应该始终在清单文件中设置默认值。`reactive::defineConfigs` 不提供默认值。
 
-In the above example, `enable` is of type `ConfigRef<boolean>`, which extends `Ref<boolean>`.
+在上面的示例中，`enable` 的类型是 `ConfigRef<boolean>`,它扩展了 `Ref<boolean>`。
 
-<!-- eslint-disable import/first -->
 ```ts
 import { defineConfigs } from 'reactive-vscode'
+// ---cut---
+import { ConfigurationTarget } from 'vscode'
 
 const { enable, greeting } = defineConfigs('your-extension', {
   enable: Boolean,
   greeting: [String, null],
 })
-// ---cut---
-import { ConfigurationTarget } from 'vscode'
 
-// This will write the value back to the configuration.
+// 这将把值写回配置中
 enable.value = false
 
-// To pass the rest of the options, you can use the `update` method.
+// 要传递其余选项，你可以使用 `update` 方法
 enable.update(false, ConfigurationTarget.Global)
 
-// Only set the ref value without writing back to the configuration.
+// 只设置 ref 值而不写回配置
 enable.set(false)
 ```
 
-Visit the [official documentation](https://code.visualstudio.com/api/references/vscode-api#WorkspaceConfiguration.update) for more information about the rest of the options.
+访问[官方文档](https://code.visualstudio.com/api/references/vscode-api#WorkspaceConfiguration.update)获取有关其余选项的更多信息。
 
-### As an Object
+### 作为对象 {#as-an-object}
 
 ```ts
 import { defineConfigObject } from 'reactive-vscode'
@@ -83,9 +82,10 @@ const config = defineConfigObject('your-extension', {
 })
 ```
 
-In the above example, `config` is a `vue::ShallowReactive(https://cn.vuejs.org/api/reactivity-advanced.html#shallowreactive)` object.
+在上面的示例中，`config` 是一个 `vue::ShallowReactive(https://cn.vuejs.org/api/reactivity-advanced.html#shallowreactive)` 对象。
 
 <!-- eslint-disable import/first -->
+
 ```ts
 import { defineConfigObject } from 'reactive-vscode'
 
@@ -96,21 +96,21 @@ const config = defineConfigObject('your-extension', {
 // ---cut---
 import { ConfigurationTarget } from 'vscode'
 
-// This will write the value back to the configuration.
+// 这将把值写回配置中
 config.enable = false
 
-// To pass the rest of the options, you can use the `$update` method.
+// 要传递其余选项，你可以使用 `$update` 方法
 config.$update('enable', false, ConfigurationTarget.Global)
 
-// Only set the ref value without writing back to the configuration.
+// 只设置 ref 值而不写回配置
 config.$set('enable', false)
 ```
 
-Visit the [official documentation](https://code.visualstudio.com/api/references/vscode-api#WorkspaceConfiguration.update) for more information about the rest of the options.
+访问[官方文档](https://code.visualstudio.com/api/references/vscode-api#WorkspaceConfiguration.update)获取有关其余选项的更多信息。
 
-## Use with `vscode-ext-gen`
+## 与 `vscode-ext-gen` 一起使用 {#use-with-vscode-ext-gen}
 
-You can also use the [`vscode-ext-gen`](https://github.com/antfu/vscode-ext-gen) to generate the configuration settings. For example:
+你也可以使用 [`vscode-ext-gen`](https://github.com/antfu/vscode-ext-gen) 来生成配置设置。例如：
 
 ```ts
 import { defineConfigObject, defineConfigs, reactive, ref } from 'reactive-vscode'
