@@ -1,10 +1,10 @@
-# Views
+# 视图 {#views}
 
-Views are an important part of a VSCode extension. There are two types of views in VSCode: [Tree View](https://code.visualstudio.com/api/extension-guides/tree-view) and [Webview](https://code.visualstudio.com/api/extension-guides/webview). Please read the [official UX guidelines](https://code.visualstudio.com/api/ux-guidelines/views) for a basic understanding.
+视图是 VSCode 扩展的重要组成部分。VSCode 中有两种类型的视图：[树视图](https://code.visualstudio.com/api/extension-guides/tree-view)和[Webview](https://code.visualstudio.com/api/extension-guides/webview)。请阅读[官方用户体验指南](https://code.visualstudio.com/api/ux-guidelines/views)以获得基本了解。
 
-## Define in Manifest <NonProprietary />
+## 在 Manifest 清单中定义 {#define-in-manifest}
 
-As described in the [official documentation](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers), first, you need view containers to be defined in the `contributes.viewsContainers.[viewContainerType]` section in the `package.json`. Then you can define your views in the `contributes.views.[viewContainerId]` section.
+如[官方文档](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers)所述，首先，你需要在 `package.json` 的 `contributes.viewsContainers.[viewContainerType]` 部分定义视图容器。然后你可以在 `contributes.views.[viewContainerId]` 部分定义你的视图。
 
 ```json
 {
@@ -34,17 +34,17 @@ As described in the [official documentation](https://code.visualstudio.com/api/r
 }
 ```
 
-![Custom views container](https://code.visualstudio.com/assets/api/references/contribution-points/custom-views-container.png)
+![自定义视图容器](https://code.visualstudio.com/assets/api/references/contribution-points/custom-views-container.png)
 
-## Register Tree View
+## 注册树视图（TreeView） {#register-tree-view}
 
-[Tree views](https://code.visualstudio.com/api/extension-guides/tree-view) are used to display hierarchical data. You can define a tree view by using the `reactive::useTreeView` function.
+[树视图（TreeView）](https://code.visualstudio.com/api/extension-guides/tree-view)用于显示层级数据。你可以使用 `reactive::useTreeView` 函数定义树视图。
 
-Here is an example of a tree view:
+这里是一个树视图 (TreeView) 的示例：
 
 <<< @/snippets/treeView.ts {35-41}
 
-Then you can call the `useDemoTreeView` function every where to register the tree view and get the returned value:
+然后你可以在任何地方调用 `useDemoTreeView` 函数来注册树视图并获取返回值：
 
 ```ts {2,5}
 import { defineExtension } from 'reactive-vscode'
@@ -56,26 +56,26 @@ export = defineExtension(() => {
 })
 ```
 
-The `children` property in nodes is used to define the children of the node. The `treeItem` property is required and is used to define the tree item of the node. It should be a `vscode::TreeItem` object, or a promise that resolves to a `vscode::TreeItem` object.
+节点中的 `children` 属性用于定义节点的子节点。`treeItem` 属性是必需的，用于定义节点的树项。它应该是一个 `vscode::TreeItem` 对象，或者是一个解析为 `vscode::TreeItem` 对象的 Promise。
 
-If you want to trigger an update based on some reactive values that aren't tracked in `treeData`, you can pass them to the `watchSource` option.
+如果你想基于一些在 `treeData` 中未跟踪的响应式值触发更新，你可以将它们传递给 `watchSource` 选项。
 
-::: details About `reactive::createSingletonComposable`
-`reactive::createSingletonComposable` is a helper function to create a singleton composable. It will only create the composable once and return the same instance every time it is called.
+::: details 关于 `reactive::createSingletonComposable`
+`reactive::createSingletonComposable` 是一个用于创建单例组合式的辅助函数。它只会创建一次组合式，并在每次调用时返回相同的实例。
 :::
 
 ::: warning
-For the above example, `useDemoTreeView` should **not** be called at the top-level in the module, because the extension context is not available at that time. Instead, you should **always** call it in the `setup` function.
+对于上面的示例，不应该在模块的顶层调用 `useDemoTreeView`，因为此时扩展上下文不可用。相反，你应该**始终**在 `setup` 函数中调用它。
 :::
 
-## Register Webview
+## 注册 Webview {#register-webview}
 
-[Webviews](https://code.visualstudio.com/api/extension-guides/webview) are used to display web content in the editor. You can define a webview by using the `reactive::useWebviewView` function.
+[Webview](https://code.visualstudio.com/api/extension-guides/webview)用于在编辑器中显示 Web 内容。你可以使用 `reactive::useWebviewView` 函数定义一个 webview。
 
-Here is an example of a webview:
+这里是一个 webview 的示例：
 
 <<< @/snippets/webviewView.ts
 
-The time to call `useDemoWebviewView` is the same as the tree view in the previous section.
+调用 `useDemoWebviewView` 的时机与上一节中的树视图相同。
 
-There is also `reactive::useWebviewPanel` composable to create a webview panel. The usage is similar to `reactive::useWebviewView`.
+还有 `reactive::useWebviewPanel` 组合式用于创建 webview 面板。其用法与 `reactive::useWebviewView` 类似。
