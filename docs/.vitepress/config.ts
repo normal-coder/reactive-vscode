@@ -88,6 +88,10 @@ export default defineConfig({
       pattern: 'https://github.com/normal-coder/reactive-vscode/edit/zh-cn/docs/:path',
     },
 
+    outline: {
+      label: '页面导航',
+    },
+
     lastUpdated: {
       text: '最后更新于',
     },
