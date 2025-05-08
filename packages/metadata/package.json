@@ -42,9 +42,9 @@
     "@antfu/ni": "^0.23.2",
     "@types/node": "18.x",
     "fast-glob": "^3.3.3",
-    "nodemon": "^3.1.9",
+    "nodemon": "^3.1.10",
     "simple-git": "^3.27.0",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
   }
 }
