@@ -39,7 +39,7 @@ export default defineConfig({
             { text: 'Editor & Document', link: '/guide/editor' },
             { text: 'Window & Workspace', link: '/guide/window' },
             { text: 'Terminals', link: '/guide/terminal' },
-            { text: 'Custom contexts', link: '/guide/context' },
+            { text: 'Custom Contexts', link: '/guide/context' },
             { text: 'Disposables', link: '/guide/disposable' },
             { text: 'Events', link: '/guide/event' },
             { text: 'VueUse Integration', link: '/guide/vueuse' },
