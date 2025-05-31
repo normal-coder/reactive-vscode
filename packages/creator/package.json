@@ -16,7 +16,7 @@
     "creator"
   ],
   "bin": {
-    "create-reactive-vscode": "dist/index.cjs"
+    "create-reactive-vscode": "./dist/index.cjs"
   },
   "files": [
     "README.md",
