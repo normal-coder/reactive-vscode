@@ -52,6 +52,9 @@ export function useStatusBarItem(options: UseStatusBarItemOptions): StatusBarIte
       }
     })
   }
+  else {
+    item.show()
+  }
 
   return item
 }
