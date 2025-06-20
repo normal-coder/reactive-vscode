@@ -45,8 +45,8 @@ importers:
         specifier: 18.x
         version: 18.19.33
       '@types/vscode':
-        specifier: ^1.99.1
-        version: 1.99.1
+        specifier: ^1.101.0
+        version: 1.101.0
       reactive-vscode:
         specifier: workspace:*
         version: link:../packages/core
@@ -84,8 +84,8 @@ importers:
         specifier: ^1.29.2
         version: 1.29.2(typescript@5.8.3)
       '@types/vscode':
-        specifier: ^1.99.1
-        version: 1.99.1
+        specifier: ^1.101.0
+        version: 1.101.0
       '@unocss/preset-attributify':
         specifier: ^0.63.6
         version: 0.63.6
@@ -136,8 +136,8 @@ importers:
         specifier: ^20.19.1
         version: 20.19.1
       '@types/vscode':
-        specifier: ^1.99.1
-        version: 1.99.1
+        specifier: ^1.101.0
+        version: 1.101.0
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -203,8 +203,8 @@ importers:
         version: 3.1.0
     devDependencies:
       '@types/vscode':
-        specifier: ^1.99.1
-        version: 1.99.1
+        specifier: ^1.101.0
+        version: 1.101.0
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -1513,8 +1513,8 @@ packages:
   '@types/unist@3.0.2':
     resolution: {integrity: sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==}
 
-  '@types/vscode@1.99.1':
-    resolution: {integrity: sha512-cQlqxHZ040ta6ovZXnXRxs3fJiTmlurkIWOfZVcLSZPcm9J4ikFpXuB7gihofGn5ng+kDVma5EmJIclfk0trPQ==}
+  '@types/vscode@1.101.0':
+    resolution: {integrity: sha512-ZWf0IWa+NGegdW3iU42AcDTFHWW7fApLdkdnBqwYEtHVIBGbTu0ZNQKP/kX3Ds/uMJXIMQNAojHR4vexCEEz5Q==}
 
   '@types/web-bluetooth@0.0.20':
     resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
@@ -5234,7 +5234,7 @@ snapshots:
 
   '@types/unist@3.0.2': {}
 
-  '@types/vscode@1.99.1': {}
+  '@types/vscode@1.101.0': {}
 
   '@types/web-bluetooth@0.0.20': {}
 
