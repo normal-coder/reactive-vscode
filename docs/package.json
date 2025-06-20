@@ -7,9 +7,9 @@
     "preview": "vitepress preview"
   },
   "devDependencies": {
-    "@iconify-json/carbon": "^1.2.8",
+    "@iconify-json/carbon": "^1.2.10",
     "@iconify-json/logos": "^1.2.4",
-    "@iconify-json/vscode-icons": "^1.2.20",
+    "@iconify-json/vscode-icons": "^1.2.23",
     "@reactive-vscode/metadata": "workspace:*",
     "@reactive-vscode/vueuse": "workspace:*",
     "@shikijs/vitepress-twoslash": "^1.29.2",
@@ -25,7 +25,7 @@
     "unocss": "^0.63.6",
     "unplugin-vue-components": "^0.27.5",
     "vitepress": "^1.6.3",
-    "vitepress-plugin-group-icons": "^1.5.5",
-    "vue": "^3.5.13"
+    "vitepress-plugin-group-icons": "^1.6.0",
+    "vue": "^3.5.17"
   }
 }

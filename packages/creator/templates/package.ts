@@ -40,11 +40,11 @@ export default (publisher: string, identifier: string, displayName: string, core
     "vscode:prepublish": "pnpm run build"
   },
   "devDependencies": {
-    "@types/node": "18.x",
-    "@types/vscode": "^1.89.0",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.99.0",
     "reactive-vscode": "${coreVersion}",
-    "tsdown": "^0.11.5",
-    "typescript": "^5.4.5"
+    "tsdown": "^0.12.8",
+    "typescript": "^5.8.3"
   }
 }
 `
