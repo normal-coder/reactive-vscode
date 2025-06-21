@@ -2,9 +2,9 @@ import type { ChatFollowupProvider, ChatRequestHandler, IconPath } from 'vscode'
 import { type MaybeRef, type MaybeRefOrGetter, unref, watchEffect } from '@reactive-vscode/reactivity'
 import { chat } from 'vscode'
 import { createKeyedComposable } from '../utils'
-import { useReactiveOptions } from '../utils/useReactiveOptions'
 import { useDisposable } from './useDisposable'
 import { useEvent } from './useEvent'
+import { useReactiveOptions } from './useReactiveOptions'
 
 export interface ChatParticipantOptions {
   iconPath?: MaybeRefOrGetter<IconPath>
