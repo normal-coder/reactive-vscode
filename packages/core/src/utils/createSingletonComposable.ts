@@ -6,12 +6,14 @@ import { effectScope } from '@reactive-vscode/reactivity'
  * @category utilities
  */
 export function createSingletonComposable<T>(fn: () => T): () => T {
+  let ran = false
   let result: T | undefined
   return () => {
-    if (result !== undefined) {
-      return result
+    if (!ran) {
+      const scope = effectScope(true)
+      result = scope.run(fn)!
+      ran = true
     }
-    const scope = effectScope(true)
-    return result = scope.run(fn)!
+    return result!
   }
 }

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /* eslint-disable no-console */
 
 import fs from 'node:fs'
@@ -12,7 +14,7 @@ import tPackage from './templates/package'
 import tReadme from './templates/readme'
 import tSrc from './templates/src'
 import tTsconfig from './templates/tsconfig'
-import tTsupConfig from './templates/tsupConfig'
+import tTsdownConfig from './templates/tsdownConfig'
 import tVscodeignore from './templates/vscodeignore'
 import { banner } from './utils/banner'
 import { packageManager, runCommand } from './utils/pkgManager'
@@ -88,7 +90,7 @@ async function main() {
   fs.writeFileSync('tsconfig.json', tTsconfig)
   fs.writeFileSync('.gitignore', tGitignore)
   fs.writeFileSync('.vscodeignore', tVscodeignore)
-  fs.writeFileSync('tsup.config.ts', tTsupConfig)
+  fs.writeFileSync('tsdown.config.ts', tTsdownConfig)
   fs.writeFileSync('README.md', tReadme(publisher, identifier, displayName))
 
   fs.mkdirSync('src')

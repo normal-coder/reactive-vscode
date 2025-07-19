@@ -1,6 +1,6 @@
 import type { MaybeRefOrGetter } from '@reactive-vscode/reactivity'
 import type { TreeDataProvider, TreeItem, TreeView, TreeViewOptions, ViewBadge } from 'vscode'
-import type { AnyWatchSource } from '../utils'
+import type { AnyWatchSource, Awaitable } from '../utils'
 import { toValue, watch } from '@reactive-vscode/reactivity'
 import { window } from 'vscode'
 import { createKeyedComposable } from '../utils'
@@ -10,7 +10,7 @@ import { useViewBadge } from './useViewBadge'
 import { useViewTitle } from './useViewTitle'
 
 export interface TreeViewNode {
-  readonly children?: this[]
+  readonly children?: Awaitable<this[]>
   readonly treeItem: TreeItem | Thenable<TreeItem>
 }
 
@@ -34,7 +34,7 @@ export type UseTreeViewOptions<T> =
 export const useTreeView = createKeyedComposable(
   <T extends TreeViewNode>(
     viewId: string,
-    treeData: MaybeRefOrGetter<T[]>,
+    treeData: MaybeRefOrGetter<Awaitable<T[]>>,
     options?: UseTreeViewOptions<T>,
   ): TreeView<T> => {
     const changeEventEmitter = useEventEmitter<void>()
@@ -54,10 +54,11 @@ export const useTreeView = createKeyedComposable(
         getTreeItem(node: T) {
           return node.treeItem
         },
-        getChildren(node?: T) {
+        async getChildren(node?: T) {
           if (node) {
-            node.children?.forEach(child => childrenToParentMap.set(child, node))
-            return node.children
+            const children = await node.children
+            children?.forEach(child => childrenToParentMap.set(child, node))
+            return children
           }
           return toValue(treeData)
         },

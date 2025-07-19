@@ -37,7 +37,7 @@ export = defineExtension(() => {
   useStatusBarItem({
     alignment: StatusBarAlignment.Right,
     priority: 100,
-    text: () => `$(megaphone) Hello*${counter.value}`,
+    text: () => `Hello ${counter.value}`,
   })
 
   useCommands({
@@ -60,7 +60,7 @@ export function activate(extensionContext: ExtensionContext) {
   const item = window.createStatusBarItem(StatusBarAlignment.Right, 100)
 
   function updateStatusBar() {
-    item.text = `$(megaphone) Hello*${counter}`
+    item.text = `Hello ${counter}`
     item.show()
   }
 
