@@ -28,6 +28,11 @@ export const useDemoTreeView = createSingletonComposable(() => {
 
   const treeData = computed(() => {
     const roots: TreeViewNode[] = []
+    roots.push({
+      treeItem: {
+        label: `Run the "Hello World" command to add items`,
+      },
+    })
     for (let i = 0; i < calledTimes.value; i++)
       roots.push(getRootNode(i))
     return roots

@@ -1,7 +1,7 @@
 {
   "name": "@reactive-vscode/metadata",
   "type": "module",
-  "version": "0.2.14",
+  "version": "0.3.1",
   "description": "Metadata for reactive-vscode",
   "author": "_Kerman <kermanx@qq.com>",
   "license": "MIT",
@@ -42,9 +42,9 @@
     "@antfu/ni": "^0.23.2",
     "@types/node": "18.x",
     "fast-glob": "^3.3.3",
-    "nodemon": "^3.1.9",
-    "simple-git": "^3.27.0",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
+    "nodemon": "^3.1.10",
+    "simple-git": "^3.28.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
   }
 }

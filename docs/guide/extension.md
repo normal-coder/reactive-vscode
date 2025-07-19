@@ -11,7 +11,7 @@ export = defineExtension(() => {
 ```
 
 ::: details TypeScript 配置 <span class="i-vscode-icons:file-type-typescript-official text-2xl mt--1 ml-1"></span>
-VSCode 扩展应该是 CommonJS 模块。由于 `export =` 语句在 ESM 中不允许使用，如果你使用如 `tsup` 这样的打包器，你需要在你的 `tsconfig.json` 中添加以下内容来使 TypeScript 满意。
+VSCode 扩展应该是 CommonJS 模块。由于 `export =` 语句在 ESM 中不允许使用，如果你使用如 `tsup` 或 `tsdown` 这样的打包器，你需要在你的 `tsconfig.json` 中添加以下内容来使 TypeScript 满意。
 
 ```json
 {

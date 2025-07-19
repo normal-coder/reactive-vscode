@@ -9,7 +9,7 @@ import transformerVariantGroup from '@unocss/transformer-variant-group'
 import UnoCSS from 'unocss/vite'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vitepress'
-
+import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Reactive VSCode',
@@ -161,6 +161,12 @@ export default defineConfig({
           })
         },
       },
+      groupIconVitePlugin({
+        customIcon: {
+          'reactivevscode': localIconLoader(import.meta.url, '../public/logo.svg'),
+          'original vscode api': 'logos:visual-studio-code',
+        },
+      }),
     ],
   },
 
@@ -181,6 +187,9 @@ export default defineConfig({
         },
       }),
     ],
+    config(md) {
+      md.use(groupIconMdPlugin)
+    },
   },
 
   locales: {

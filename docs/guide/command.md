@@ -8,7 +8,7 @@ VSCode 有一些[内置命令](https://code.visualstudio.com/api/references/comm
 
 如[官方文档](https://code.visualstudio.com/api/references/contribution-points#contributes.commands)所述，你需要在 `package.json` 的 `contributes.commands` 字段中定义命令。
 
-```json
+```json [package.json]
 {
   "contributes": {
     "commands": [

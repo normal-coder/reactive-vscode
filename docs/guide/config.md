@@ -6,7 +6,7 @@
 
 要在 `package.json` 中定义设置，你需要添加 `contributes.configuration` 字段。`configuration` 字段是一个包含配置设置的对象。
 
-```json
+```json [package.json]
 {
   "contributes": {
     "configuration": {

@@ -3,6 +3,7 @@ import type { StatusBarAlignment, StatusBarItem } from 'vscode'
 import { toValue, watchEffect } from '@reactive-vscode/reactivity'
 import { window } from 'vscode'
 import { useDisposable } from './useDisposable'
+import { useReactiveOptions } from './useReactiveOptions'
 
 export interface UseStatusBarItemOptions {
   id?: string
@@ -26,13 +27,7 @@ export function useStatusBarItem(options: UseStatusBarItemOptions): StatusBarIte
     ? window.createStatusBarItem(options.id, options.alignment, options.priority)
     : window.createStatusBarItem(options.alignment, options.priority))
 
-  function reactivelySet(key: string) {
-    const value = (options as any)[key]
-    if (value != null)
-      watchEffect(() => (item as any)[key] = toValue(value))
-  }
-
-  [
+  useReactiveOptions(item, options, [
     'name',
     'text',
     'tooltip',
@@ -40,7 +35,7 @@ export function useStatusBarItem(options: UseStatusBarItemOptions): StatusBarIte
     'backgroundColor',
     'command',
     'accessibilityInformation',
-  ].forEach(reactivelySet)
+  ])
 
   if (options.visible != null) {
     watchEffect(() => {
@@ -51,6 +46,9 @@ export function useStatusBarItem(options: UseStatusBarItemOptions): StatusBarIte
         item.hide()
       }
     })
+  }
+  else {
+    item.show()
   }
 
   return item

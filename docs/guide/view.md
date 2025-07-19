@@ -6,7 +6,7 @@
 
 如[官方文档](https://code.visualstudio.com/api/references/contribution-points#contributes.viewsContainers)所述，首先，你需要在 `package.json` 的 `contributes.viewsContainers.[viewContainerType]` 部分定义视图容器。然后你可以在 `contributes.views.[viewContainerId]` 部分定义你的视图。
 
-```json
+```json [package.json]
 {
   "contributes": {
     "viewsContainers": {
