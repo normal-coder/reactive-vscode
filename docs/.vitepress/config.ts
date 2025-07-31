@@ -103,7 +103,7 @@ export default defineConfig({
 
   },
   sitemap: {
-    hostname: 'https://reactive-vscode.dev',
+    hostname: 'https://cn.reactive-vscode.dev',
   },
   head: [['link', { rel: 'icon', href: '/reactive-vscode/favicon.ico' }]],
   lastUpdated: true,
