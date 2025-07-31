@@ -78,6 +78,9 @@ export default defineConfig({
       pattern: 'https://github.com/kermanx/reactive-vscode/edit/main/docs/:path',
     },
   },
+  sitemap: {
+    hostname: 'https://reactive-vscode.dev',
+  },
   head: [['link', { rel: 'icon', href: '/reactive-vscode/favicon.ico' }]],
   lastUpdated: true,
 
