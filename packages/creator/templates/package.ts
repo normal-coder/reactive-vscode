@@ -43,8 +43,8 @@ export default (publisher: string, identifier: string, displayName: string, core
     "@types/node": "22.x",
     "@types/vscode": "^1.101.0",
     "reactive-vscode": "${coreVersion}",
-    "tsdown": "^0.12.8",
-    "typescript": "^5.8.3"
+    "tsdown": "^0.14.2",
+    "typescript": "^5.9.2"
   }
 }
 `
