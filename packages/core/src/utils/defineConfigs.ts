@@ -71,7 +71,7 @@ export function defineConfigs(section: Nullable<string>, configs: object, scope?
     }) as ConfigRef<T>
     ref.update = async (value, configurationTarget, overrideInLanguage) => {
       await workspaceConfig.update(key, value, configurationTarget, overrideInLanguage)
-      ref.value = value
+      data.value = value
     }
     ref.set = (value) => {
       data.value = value
