@@ -45,10 +45,10 @@
     "@reactive-vscode/reactivity": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^20.19.13",
-    "@types/vscode": "^1.103.0",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.4",
+    "@types/node": "^24.6.2",
+    "@types/vscode": "^1.104.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.8",
     "vite-plugin-dts": "^4.5.4"
   },
   "publishConfig": {
