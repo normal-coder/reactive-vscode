@@ -1,4 +1,5 @@
 import { effectScope } from '@reactive-vscode/reactivity'
+import { onDeactivate } from './onDeactivate'
 
 /**
  * Creates a composable that should only be called once.
@@ -11,6 +12,7 @@ export function createSingletonComposable<T>(fn: () => T): () => T {
   return () => {
     if (!ran) {
       const scope = effectScope(true)
+      onDeactivate(() => scope.stop())
       result = scope.run(fn)!
       ran = true
     }
