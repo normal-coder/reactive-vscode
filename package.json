@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "packageManager": "pnpm@10.18.0",
   "scripts": {
     "dev": "nr demo:dev",
