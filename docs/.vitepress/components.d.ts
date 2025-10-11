@@ -16,5 +16,7 @@ declare module 'vue' {
     NonProprietary: typeof import('./theme/components/NonProprietary.vue')['default']
     ReactiveVscode: typeof import('./theme/components/ReactiveVscode.vue')['default']
     ReactiveVscode2: typeof import('./theme/components/ReactiveVscode2.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }
