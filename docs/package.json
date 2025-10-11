@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "dev:slides": "slidev ./slides/slides.md",
+    "build:slides": "slidev build ./slides/slides.md --out ./.vitepress/dist/slides"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.2.13",
@@ -13,6 +15,8 @@
     "@reactive-vscode/metadata": "workspace:*",
     "@reactive-vscode/vueuse": "workspace:*",
     "@shikijs/vitepress-twoslash": "^3.13.0",
+    "@slidev/cli": "^52.2.5",
+    "@slidev/theme-default": "^0.25.0",
     "@types/vscode": "^1.104.0",
     "@unocss/preset-attributify": "^66.5.2",
     "@unocss/preset-icons": "^66.5.2",
