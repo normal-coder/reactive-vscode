@@ -1,3 +1,10 @@
+// Legacy APIs dropped in VueUse@14 (https://github.com/vueuse/vueuse/pull/5010)
+export {
+  toRef as resolveRef,
+  toValue as resolveUnref,
+  toValue,
+} from '@reactive-vscode/reactivity'
+
 // From `@vueuse/shared`
 export {
   type AnyFn,
@@ -95,8 +102,6 @@ export {
   refThrottled,
   refWithControl,
   type RemovableRef,
-  resolveRef,
-  resolveUnref,
   set,
   type ShallowUnwrapRef,
   type SingletonPromiseReturn,
@@ -113,7 +118,6 @@ export {
   toRef,
   toRefs,
   type ToRefsOptions,
-  toValue,
   tryOnScopeDispose,
   until,
   type UntilArrayInstance,

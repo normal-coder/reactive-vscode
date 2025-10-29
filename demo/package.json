@@ -11,7 +11,7 @@
   ],
   "main": "./dist/extension.cjs",
   "engines": {
-    "vscode": "^1.104.0"
+    "vscode": "^1.105.0"
   },
   "activationEvents": [
     "onStartupFinished"
@@ -64,12 +64,12 @@
   },
   "devDependencies": {
     "@reactive-vscode/mock": "workspace:*",
-    "@types/node": "18.x",
-    "@types/vscode": "^1.104.0",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.105.0",
     "reactive-vscode": "workspace:*",
-    "tsdown": "^0.15.6",
+    "tsdown": "^0.15.11",
     "typescript": "^5.9.3",
-    "vite": "^7.1.8",
-    "vitest": "^3.2.4"
+    "vite": "^7.1.12",
+    "vitest": "^4.0.4"
   }
 }
