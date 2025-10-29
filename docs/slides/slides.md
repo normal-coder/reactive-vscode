@@ -28,14 +28,16 @@ with reactive-vscode
 
 # The architecture of VSCode
 
-![](https://code.visualstudio.com/assets/blogs/2022/11/28/process-model-after-sandboxing.png)
+<div />
+
+![](https://code.visualstudio.com/assets/blogs/2022/11/28/process-model-after-sandboxing.png){.h-100}
 
 
 - https://code.visualstudio.com/blogs/2022/11/28/vscode-sandbox
 
 ---
 
-# Runtime & RPC
+# Runtimes
 
 - Node.js (Extension Host)
 
@@ -63,29 +65,29 @@ VSCode Extensions are UI Applications
 
 Fact: $\text{UI} = f(\text{State})$
 
-  - If the active document is a Markdown, show the markdown toolbar, otherwise hide it.
+- Show the toolbar if the active document is a Markdown file.
+
+  ```ts
+  function f(state) {
+    return {
+      showToolbar: state.isMarkdown,
+    }
+  }
+
+  UI = f(state) // ?
+  ```
+
+<p />
 
 Fact: $\text{State}' = \delta(\text{State}, \text{Event})$
 
 - When the active document changes, update the state.
 
-```ts
-const state = {
-  isMarkdown: false,
-}
-
-function f(state) {
-  return {
-    showToolbar: state.isMarkdown,
-  }
-}
-
-onActiveDocumentChange((doc) => {
-  state.isMarkdown = doc.languageId === 'markdown'
-})
-
-UI = f(state) // ?
-```
+  ```ts
+  onActiveDocumentChange((doc) => {
+    state.isMarkdown = doc.languageId === 'markdown'
+  })
+  ```
 
 ---
 
@@ -100,11 +102,10 @@ onActiveDocumentChange((doc) => {
   const before = state.isMarkdown
   state.isMarkdown = doc.languageId === 'markdown'
   if (state.isMarkdown !== before) {
-    if (state.isMarkdown) {
-      UI.showToolbar()
-    } else {
-      UI.hideToolbar()
-    }
+    if (state.isMarkdown)
+      UI.toolbar.show()
+    else
+      UI.toolbar.hide()
   }
 })
 ```
@@ -118,7 +119,7 @@ const state = {
   isMarkdown: false,
 }
 
-function f(state) {
+UI.renderer = (state) => {
   return {
     showToolbar: state.isMarkdown,
   }
@@ -126,7 +127,7 @@ function f(state) {
 
 onActiveDocumentChange((doc) => {
   state.isMarkdown = doc.languageId === 'markdown'
-  diffAndUpdate()
+  UI.diffAndUpdate()
 })
 ```
 
@@ -152,13 +153,113 @@ onActiveDocumentChange((doc) => {
 
 # Reactivity Basics
 
-The 
+<div />
+
+Think as "Connections"
+
+<div grid grid-cols-2 gap-4>
+<div>
+
+<Reactivity />
+
+<div text-xl ml-8 mt-8>
+
+$\text{UI} = f(\text{State})$ 
+
+</div>
+
+Functional instead of imperative
+
+</div>
+<div>
+
+```ts
+import { ref, computed } from 'reactive-vscode'
+
+const x = ref(2)
+const y = ref(4)
+
+const x2 = computed(() => x.value * x.value)
+const y2 = computed(() => y.value * y.value)
+
+const sum = computed(() => x2.value + y2.value)
+```
+
+<div mt-18 text-xl>
+
+```ts
+import { reactive } from 'reactive-vscode'
+
+const state = reactive({ ... })
+
+const UI = computed(() => f(state))
+```
+
+</div>
+</div>
+</div>
+
+---
+
+# Reactivity Basics
+
+<div />
+
+Side-effects
+
+Beyond pure computation, side-effects are needed to interact with the outside world.
+
+```ts
+import { ref, computed, watch, watchEffect } from 'reactive-vscode'
+
+const counter = ref(0)
+
+watch(counter, (newVal) => {
+  console.log(`Counter changed: ${newVal}`)
+})
+
+watchEffect(() => {
+  item.text = `Counter: ${counter.value}`
+})
+```
+
+---
+
+# Reactivity Basics
+
+<div />
+
+Effect scopes
+
+```ts
+import { EffectScope, effectScope, watch, onScopeDispose } from 'reactive-vscode'
+
+const users = new Map<string, EffectScope>()
+
+function userJoin(name: string) {
+  const scope = effectScope(true)
+  users.set(name, scope)
+  return scope.run(() => {
+    watch( ... )
+    onScopeDispose( ... )
+  })
+}
+
+function userLeave(name: string) {
+  const scope = users.get(name)
+  if (scope) {
+    scope.stop()
+    users.delete(name)
+  }
+}
+```
+
 
 ---
 
 # Extension Basics
 
-- Essentially a Node.js package
+- Essentially a **Node.js package**
   - Node.js and NPM
   - `package.json` describes the extension
     - `main` field: the entry file
@@ -190,11 +291,11 @@ export const { activate, deactivate } = defineExtension(() => {
 
 ---
 
-# Define a "Component"
+# Define a Service
 
 <div />
 
-The "component" is a new effect scope, which
+The service is a new effect scope, which
 
 - Runs once when called
 - Lives until the extension is deactivated
