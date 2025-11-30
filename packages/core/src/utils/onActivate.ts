@@ -9,7 +9,7 @@ type OnActivateCb = (context: ExtensionContext) => void
 export const activateCbs: OnActivateCb[] = []
 
 /**
- * Registers a callback to be called after the extension has been activated.
+ * 注册一个在扩展被激活后调用的回调函数。
  *
  * @category lifecycle
  */

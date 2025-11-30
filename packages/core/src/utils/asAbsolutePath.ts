@@ -1,7 +1,7 @@
 import { extensionContext } from '../utils'
 
 /**
- * A shorthand for `vscode::ExtensionContext.asAbsolutePath`
+ * `vscode::ExtensionContext.asAbsolutePath` 的简写形式。
  * @category utilities
  */
 export function asAbsolutePath(relativePath: string, silent?: false): string

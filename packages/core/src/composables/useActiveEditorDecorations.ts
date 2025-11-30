@@ -6,7 +6,7 @@ import { useActiveTextEditor } from './useActiveTextEditor'
 import { useEditorDecorations } from './useEditorDecorations'
 
 /**
- * Reactively set decorations on the active editor. See `vscode::window.activeTextEditor`.
+ * 响应式地为活动编辑器设置装饰。参见 `vscode::window.activeTextEditor`。
  *
  * @category editor
  */

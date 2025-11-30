@@ -13,7 +13,7 @@ export interface WebviewPanelRegisterOptions {
 }
 
 /**
- * Register a webview panel. See `vscode::window.createWebviewPanel`.
+ * 注册一个 webview 面板。参见 `vscode::window.createWebviewPanel`。
  *
  * @category view
  */

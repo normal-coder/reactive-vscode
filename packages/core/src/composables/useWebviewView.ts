@@ -16,7 +16,7 @@ export interface WebviewViewRegisterOptions {
 }
 
 /**
- * Register a webview view. See `vscode::window.registerWebviewViewProvider`.
+ * 注册一个 webview 视图。参见 `vscode::window.registerWebviewViewProvider`。
  *
  * @category view
  */

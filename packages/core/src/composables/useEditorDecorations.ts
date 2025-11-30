@@ -16,7 +16,7 @@ export interface UseEditorDecorationsOptions {
 }
 
 /**
- * Reactively set decorations on the given editor. See `vscode::TextEditor.setDecorations`.
+ * 响应式地为给定编辑器设置装饰。参见 `vscode::TextEditor.setDecorations`。
  *
  * @category editor
  */

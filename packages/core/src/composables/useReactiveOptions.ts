@@ -2,7 +2,7 @@ import type { MaybeRefOrGetter } from '@reactive-vscode/reactivity'
 import { toValue, watchEffect } from '@reactive-vscode/reactivity'
 
 /**
- * Set multiple reactive options on a target object.
+ * 在一个目标对象上设置多个响应式选项。
  * @category utilities
  */
 export function useReactiveOptions<T extends object>(

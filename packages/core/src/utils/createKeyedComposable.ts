@@ -1,7 +1,7 @@
 import { tryOnScopeDispose } from './tryOnScopeDispose'
 
 /**
- * Creates a composable that caches the result of a function based on a key.
+ * 创建一个可组合函数，它会根据一个键来缓存函数的结果。
  *
  * @category utilities
  */

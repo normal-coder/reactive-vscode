@@ -11,7 +11,7 @@ export const extensionContext = shallowRef<ExtensionContext | null>(null!)
 export const extensionScope = effectScope()
 
 /**
- * Define a new extension.
+ * 定义一个新扩展。
  *
  * @category lifecycle
  */

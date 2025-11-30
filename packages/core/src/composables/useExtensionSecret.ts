@@ -4,7 +4,7 @@ import { extensionContext } from '../utils'
 import { useDisposable } from './useDisposable'
 
 /**
- * Get a reactive secret value from the extension's secrets.
+ * 从扩展的机密存储中获取一个响应式的机密值。
  *
  * @reactive `ExtensionContext.secrets`
  * @category extension

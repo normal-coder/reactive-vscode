@@ -6,7 +6,7 @@ import { toValue, watchEffect } from '@reactive-vscode/reactivity'
 type ViewWithBadge = Pick<TreeView<unknown> | WebviewView, 'badge'>
 
 /**
- * Reactively set the badge of a view (`vscode::TreeView` or `vscode::WebviewView`).
+ * 响应式地设置一个视图 (`vscode::TreeView` 或 `vscode::WebviewView`) 的徽章。
  *
  * @category view
  */

@@ -19,7 +19,7 @@ export function useVscodeContext<T>(
 ): Ref<T>
 
 /**
- * Reactively set a VS Code context. See [custom when clause context](https://code.visualstudio.com/api/references/when-clause-contexts#add-a-custom-when-clause-context).
+ * 响应式地设置一个 VS Code 上下文。参见 [自定义 when 子句上下文](https://code.visualstudio.com/api/references/when-clause-contexts#add-a-custom-when-clause-context)。
  *
  * @category lifecycle
  */

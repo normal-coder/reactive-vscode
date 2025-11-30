@@ -1,7 +1,7 @@
 import { getCurrentScope, onScopeDispose } from '@reactive-vscode/reactivity'
 
 /**
- * The safe version of `vue::onScopeDispose(https://vuejs.org/api/reactivity-advanced.html#onscopedispose)`.
+ * `vue::onScopeDispose(https://vuejs.org/api/reactivity-advanced.html#onscopedispose)` 的安全版本。
  *
  * @category lifecycle
  */

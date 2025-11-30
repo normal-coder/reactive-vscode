@@ -48,7 +48,7 @@ async function getComposableMetadata(filename: string): Promise<FunctionMetadata
   const _md = existsSync(mdPath) ? await fs.readFile(mdPath, 'utf-8') : undefined // TODO: md
   const original = getOriginalAPI(ts)
   const category = getCategory(ts) ?? (original ? toCategoryName(original) : undefined)
-  const description = getDescription(ts) || (original ? `Reactive API for \`vscode::${original}\`.` : undefined)
+  const description = getDescription(ts) || (original ? `\`vscode::${original}\` 的 Reactive API。` : undefined)
   return {
     name,
     category,

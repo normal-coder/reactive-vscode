@@ -4,7 +4,7 @@ import { useLogger } from '../composables'
 import { onActivate } from './onActivate'
 
 /**
- * Define a logger which is usable before activation.
+ * 定义一个在激活前即可使用的记录器。
  *
  * @category view
  */

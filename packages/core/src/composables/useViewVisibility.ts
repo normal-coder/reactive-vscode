@@ -6,7 +6,7 @@ import { computed, ref, toValue, watchEffect } from '@reactive-vscode/reactivity
 type ViewWithVisibility = Pick<TreeView<unknown> | WebviewView, 'visible' | 'onDidChangeVisibility'>
 
 /**
- * Reactively get the visibility of a view (`vscode::TreeView` or `vscode::WebviewView`).
+ * 响应式地获取一个视图（`vscode::TreeView` 或 `vscode::WebviewView`）的可见性。
  *
  * @category view
  */

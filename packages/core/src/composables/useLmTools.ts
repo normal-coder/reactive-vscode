@@ -4,7 +4,7 @@ import { createSingletonComposable } from '../utils'
 import { useDisposable } from './useDisposable'
 
 /**
- * A list of all available tools that were registered by all extensions using `vscode::lm.registerTool`.
+ * 一个由所有扩展使用 `vscode::lm.registerTool` 注册的可用工具列表。
  *
  * @reactive `lm.tools`
  * @category lm

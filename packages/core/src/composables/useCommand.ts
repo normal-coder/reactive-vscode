@@ -3,7 +3,7 @@ import { commands } from 'vscode'
 import { useDisposable } from './useDisposable'
 
 /**
- * Register a command. See `vscode::commands.registerCommand`.
+ * 注册一个命令。参见 `vscode::commands.registerCommand`。
  *
  * @category commands
  */

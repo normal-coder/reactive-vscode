@@ -13,18 +13,18 @@ const link = computed(() => withBase(`/functions\#category=${encodeURIComponent(
 <template>
   <div class="grid grid-cols-[100px_auto] gap-2 text-sm mt-4 mb-8 items-start">
     <div opacity="50">
-      Category
+      分类
     </div>
     <div><a :href="link">{{ info.category }}</a></div>
     <template v-if="info.lastUpdated">
       <div opacity="50">
-        Last Changed
+        最后修改时间
       </div>
       <div>{{ lastUpdated }}</div>
     </template>
     <template v-if="info.original">
       <div opacity="50">
-        Original API
+        原始 API
       </div>
       <div>
         <a class="api-link scope-vscode ml--1" :href="`https://code.visualstudio.com/api/references/vscode-api#${info.original}`" target="_blank">

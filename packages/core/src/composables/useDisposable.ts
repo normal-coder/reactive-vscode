@@ -3,7 +3,7 @@ import { getCurrentScope } from '@reactive-vscode/reactivity'
 import { extensionScope } from '../utils'
 
 /**
- * Dispose the disposable when the current scope is disposed. See `vscode::Disposable`.
+ * 当当前作用域被销毁时，销毁该 `disposable` 对象。参见 `vscode::Disposable`。
  *
  * @category lifecycle
  */

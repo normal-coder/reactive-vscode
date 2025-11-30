@@ -48,9 +48,9 @@ type ToConfigRefs<C extends object> = {
 }
 
 /**
- * Define configurations of an extension. See `vscode::workspace.getConfiguration`.
+ * 定义一个扩展的配置。参见 `vscode::workspace.getConfiguration`。
  *
- * You can use this function with [vscode-ext-gen](https://github.com/antfu/vscode-ext-gen).
+ * 你可以将此函数与 [vscode-ext-gen](https://github.com/antfu/vscode-ext-gen) 搭配使用。
  *
  * @category lifecycle
  */

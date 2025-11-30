@@ -1,7 +1,7 @@
 import { createSingletonComposable } from './createSingletonComposable'
 
 /**
- * Define a service that should only be instantiated once.
+ * 定义一个只应被实例化一次的服务。
  *
  * @category lifecycle
  */

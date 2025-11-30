@@ -8,7 +8,7 @@ type OnDeactivateCb = () => Awaitable<void>
 export const deactivateCbs: OnDeactivateCb[] = []
 
 /**
- * Registers a callback to be called when the extension is deactivated.
+ * 注册一个在扩展被停用时调用的回调函数。
  *
  * @category lifecycle
  */

@@ -4,7 +4,7 @@ import { createSingletonComposable } from '../utils'
 import { useActiveColorTheme } from './useActiveColorTheme'
 
 /**
- * Determines if the current color theme is dark. See `vscode::ColorTheme.kind`.
+ * 判断当前颜色主题是否为深色。参见 `vscode::ColorTheme.kind`。
  *
  * @category window
  */

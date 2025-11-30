@@ -2,7 +2,7 @@ import { effectScope } from '@reactive-vscode/reactivity'
 import { onDeactivate } from './onDeactivate'
 
 /**
- * Creates a composable that should only be called once.
+ * 创建一个只应被调用一次的可组合函数。
  *
  * @category lifecycle
  */

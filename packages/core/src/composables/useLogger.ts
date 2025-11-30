@@ -25,7 +25,7 @@ export interface UseLoggerOptions {
 }
 
 /**
- * Creates a logger that writes to the output channel.
+ * 创建一个将内容写入输出通道的记录器。
  *
  * @category view
  */

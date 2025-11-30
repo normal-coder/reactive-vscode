@@ -17,10 +17,10 @@ if(!import.meta.env.SSR)
 const sourcePath = `packages/core/src/${fn.isComposable ? 'composables' : 'utils'}/${fn.name}.ts`
 </script>
 
-## Usage
+## 使用方法
 
 <!-- @content -->
 
-## Source
+## 源代码
 
-<a :href="`https://github.com/kermanx/reactive-vscode/blob/main/${sourcePath}`" target="_blank"><i i-carbon-logo-github text-black dark:text-white mb-1 text-lg /> View Source</a>
+<a :href="`https://github.com/kermanx/reactive-vscode/blob/main/${sourcePath}`" target="_blank"><i i-carbon-logo-github text-black dark:text-white mb-1 text-lg />在 GitHub 上查看源代码</a>

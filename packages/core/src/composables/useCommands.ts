@@ -2,7 +2,7 @@ import type { Commands } from '../utils'
 import { useCommand } from './useCommand'
 
 /**
- * Register multiple commands. See `vscode::commands.registerCommand`.
+ * 注册多个命令。参见 `vscode::commands.registerCommand`。
  *
  * @category commands
  */

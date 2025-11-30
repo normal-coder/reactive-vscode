@@ -6,6 +6,11 @@ import Fuse from 'fuse.js'
 import { computed, toRef } from 'vue'
 
 const sortMethods = ['category', 'name', 'updated']
+const sortMethodDisplayNames: Record<string, string> = {
+  category: '按分类',
+  name: '按名称',
+  updated: '按更新时间',
+}
 
 useEventListener('click', (e) => {
   // @ts-expect-error cast
@@ -103,7 +108,7 @@ function toggleSort(method: string) {
         }"
         @click="toggleSort(method)"
       >
-        {{ method }}
+        {{ sortMethodDisplayNames[method] }}
       </button>
     </div>
     <div opacity="80" text="sm">

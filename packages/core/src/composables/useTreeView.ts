@@ -27,7 +27,7 @@ export type UseTreeViewOptions<T>
     }
 
 /**
- * Register a tree view. See `vscode::window.createTreeView`.
+ * 注册一个树视图。参见 `vscode::window.createTreeView`。
  *
  * @category view
  */

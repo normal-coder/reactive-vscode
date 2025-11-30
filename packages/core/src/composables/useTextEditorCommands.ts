@@ -2,7 +2,7 @@ import type { TextEditorCommandCallback } from './useTextEditorCommand'
 import { useTextEditorCommand } from './useTextEditorCommand'
 
 /**
- * Register multiple text editor commands. See `vscode::commands.registerTextEditorCommand`.
+ * 注册多个文本编辑器命令。参见 `vscode::commands.registerTextEditorCommand`。
  *
  * @category commands
  */

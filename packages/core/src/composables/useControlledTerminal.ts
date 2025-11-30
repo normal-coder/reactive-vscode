@@ -16,7 +16,7 @@ interface UseControlledTerminalReturn {
 }
 
 /**
- * Create terminal, and allows you to control the terminal lifecycle.
+ * 创建一个终端，并允许你控制其生命周期。
  *
  * @category terminal
  */
