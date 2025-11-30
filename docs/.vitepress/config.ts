@@ -106,7 +106,28 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://cn.reactive-vscode.dev',
   },
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['meta', { name: 'keywords', content: 'vscode, vscode extension, reactive, vue, reactivity, VS Code API, vscode 插件开发, vscode 扩展开发, 响应式' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: 'Reactive VSCode 中文开发文档' }],
+    ['meta', { property: 'og:description', content: '使用 Vue 响应式 API 开发 VSCode 扩展' }],
+    ['meta', { property: 'og:image', content: 'https://cn.reactive-vscode.dev/header.png' }],
+    ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-GWQW36LN17' }],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GWQW36LN17');`,
+    ],
+  ],
+  transformHead({ head, page }) {
+    const url = `https://cn.reactive-vscode.dev${page}`
+    head.push(['meta', { property: 'og:url', content: url }])
+    return head
+  },
   lastUpdated: true,
   srcExclude: ['slides/**'],
 
