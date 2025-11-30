@@ -2,6 +2,7 @@ import { extensionContext } from '../utils'
 
 /**
  * A shorthand for `vscode::ExtensionContext.asAbsolutePath`
+ * @category utilities
  */
 export function asAbsolutePath(relativePath: string, silent?: false): string
 export function asAbsolutePath(relativePath: string, silent?: boolean): string | undefined

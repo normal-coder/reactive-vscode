@@ -83,6 +83,7 @@ export default defineConfig({
   },
   head: [['link', { rel: 'icon', href: '/reactive-vscode/favicon.ico' }]],
   lastUpdated: true,
+  srcExclude: ['slides/**'],
 
   vite: {
     plugins: [
@@ -166,6 +167,9 @@ export default defineConfig({
         },
       }),
     ],
+    async shikiSetup(shiki) {
+      await shiki.loadLanguage('js')
+    },
     config(md) {
       md.use(groupIconMdPlugin)
     },
