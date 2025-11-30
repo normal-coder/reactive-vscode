@@ -12,7 +12,8 @@ import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Reactive VSCode 中文开发文档 | VSCode 扩展开发 | VSCode 插件开发',
+  title: 'Reactive VSCode 中文开发文档',
+  titleTemplate: ':title - VSCode 扩展开发 - VSCode 插件开发',
   description: '使用 Vue 响应式 API 开发 VSCode 扩展',
   base: '/',
   lang: 'zh-CN',
