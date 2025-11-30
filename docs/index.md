@@ -42,7 +42,7 @@ features:
 import { withBase } from 'vitepress'
 </script>
 
-<div class="relative min-h-220">
+<div class="relative">
 
 ::: code-group
 

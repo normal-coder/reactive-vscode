@@ -98,15 +98,15 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Reactive VSCode 以 MIT 许可证发布。项目归属 https://github.com/kermanx/reactive-vscode',
-      copyright: 'Copyright © 2019-present Evan You',
+      message: '本站由 <a href="https://reactive-vscode.dev">reactive-vscode.dev</a> 独立运营，Reactive VSCode 项目归属 © <a href="https://github.com/kermanx/reactive-vscode">kermanx/reactive-vscode</a> 所有。',
+      copyright: 'Copyright © 2015-present <a href="https://reactive-vscode.dev">reactive-vscode.dev</a>',
     },
 
   },
   sitemap: {
     hostname: 'https://cn.reactive-vscode.dev',
   },
-  head: [['link', { rel: 'icon', href: '/reactive-vscode/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   lastUpdated: true,
   srcExclude: ['slides/**'],
 
