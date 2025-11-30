@@ -12,7 +12,7 @@ import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Reactive VSCode',
+  title: 'Reactive VSCode (unofficial)',
   description: 'Develop VSCode extension with Vue Reactivity API',
   base: '/',
   lang: 'en-US',
