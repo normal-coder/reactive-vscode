@@ -1,8 +1,8 @@
-import { computed, createSingletonComposable, useWebviewView } from 'reactive-vscode'
+import { computed, defineService, useWebviewView } from 'reactive-vscode'
 import { message } from './configs'
 import { calledTimes } from './states'
 
-export const useDemoWebviewView = createSingletonComposable(() => {
+export const useDemoWebviewView = defineService(() => {
   const html = computed(() => `
   <script>
     vscode = acquireVsCodeApi()

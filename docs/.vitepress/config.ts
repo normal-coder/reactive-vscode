@@ -12,7 +12,7 @@ import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Reactive VSCode',
+  title: 'Reactive VSCode 中文开发文档 | VSCode 扩展开发 | VSCode 插件开发',
   description: '使用 Vue 响应式 API 开发 VSCode 扩展',
   base: '/',
   lang: 'zh-CN',
@@ -97,7 +97,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: 'Released under the MIT License.',
+      message: 'Reactive VSCode 以 MIT 许可证发布。项目归属 https://github.com/kermanx/reactive-vscode',
       copyright: 'Copyright © 2019-present Evan You',
     },
 
@@ -107,6 +107,7 @@ export default defineConfig({
   },
   head: [['link', { rel: 'icon', href: '/reactive-vscode/favicon.ico' }]],
   lastUpdated: true,
+  srcExclude: ['slides/**'],
 
   vite: {
     plugins: [
@@ -190,6 +191,9 @@ export default defineConfig({
         },
       }),
     ],
+    async shikiSetup(shiki) {
+      await shiki.loadLanguage('js')
+    },
     config(md) {
       md.use(groupIconMdPlugin)
     },

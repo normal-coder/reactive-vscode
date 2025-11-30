@@ -60,12 +60,12 @@ export = defineExtension(() => {
 
 如果你想基于一些在 `treeData` 中未跟踪的响应式值触发更新，你可以将它们传递给 `watchSource` 选项。
 
-::: details 关于 `reactive::createSingletonComposable`
-`reactive::createSingletonComposable` 是一个用于创建单例组合式的辅助函数。它只会创建一次组合式，并在每次调用时返回相同的实例。
+::: details 关于 `reactive::defineService`
+`reactive::defineService` 定义的逻辑应该只执行一次，并且可以在多个地方使用。当第一次调用 `defineService` 传递的函数时，它将在一个分离的 effect scope 中执行，之后的调用将返回缓存的结果。当扩展被停用时，`defineService` 创建的 effect scope 会自动停止。
 :::
 
 ::: warning
-对于上面的示例，不应该在模块的顶层调用 `useDemoTreeView`，因为此时扩展上下文不可用。相反，你应该**始终**在 `setup` 函数中调用它。
+对于上面的例子，`useDemoTreeView`不应该在模块的顶层调用，因为在那时扩展上下文不可用。相反，你应该在`defineExtension`的setup函数中调用它（即当扩展被激活时）。
 :::
 
 ## 注册 Webview {#register-webview}

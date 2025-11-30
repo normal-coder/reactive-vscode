@@ -113,8 +113,9 @@ config.$set('enable', false)
 你也可以使用 [`vscode-ext-gen`](https://github.com/antfu/vscode-ext-gen) 来生成配置设置。例如：
 
 ```ts
+import type { NestedScopedConfigs } from './generated-meta'
 import { defineConfigObject, defineConfigs, reactive, ref } from 'reactive-vscode'
-import { type NestedScopedConfigs, scopedConfigs } from './generated-meta'
+import { scopedConfigs } from './generated-meta'
 
 const config = defineConfigObject<NestedScopedConfigs>(
   scopedConfigs.scope,

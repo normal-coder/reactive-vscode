@@ -11,7 +11,7 @@ export type ConfigObject<C extends object> = UnwrapNestedRefs<C> & {
    *
    * @see https://code.visualstudio.com/api/references/vscode-api#WorkspaceConfiguration.update
    */
-  $update: (key: keyof C, value: C[keyof C], configurationTarget?: Nullable<ConfigurationTarget>, overrideInLanguage?: boolean) => Promise<void>
+  $update: (key: keyof C, value: C[keyof C], configurationTarget?: ConfigurationTarget | boolean | null, overrideInLanguage?: boolean) => Promise<void>
 
   /**
    * Set the value without updating the workspace.

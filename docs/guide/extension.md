@@ -26,6 +26,7 @@ VSCode 扩展应该是 CommonJS 模块。由于 `export =` 语句在 ESM 中不�
 
 ```ts
 import { defineExtension } from 'reactive-vscode'
+
 const { activate, deactivate } = defineExtension(() => {
   // 你的扩展代码
 })

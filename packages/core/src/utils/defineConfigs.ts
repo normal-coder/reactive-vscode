@@ -28,15 +28,15 @@ type ConfigTypeRaw<T> = ConfigTypeSingle<T> | ConfigTypeSingle<T>[]
 
 export type ConfigTypeOptions = Record<string, ConfigTypeRaw<any>>
 
-type ParseConfigType<C extends ConfigTypeRaw<any>> =
-  C extends (infer C1)[] ? (C1 extends ConfigTypeSingle<any> ? ParseConfigType<C1> : never)
+type ParseConfigType<C extends ConfigTypeRaw<any>>
+  = C extends (infer C1)[] ? (C1 extends ConfigTypeSingle<any> ? ParseConfigType<C1> : never)
     : C extends ConfigType<infer T> ? T : (
-      C extends typeof String ? string :
-        C extends typeof Number ? number :
-          C extends typeof Boolean ? boolean :
-            C extends typeof Array ? any[] :
-              C extends typeof Object ? Record<string | number, any> :
-                C extends null ? null : never
+      C extends typeof String ? string
+        : C extends typeof Number ? number
+          : C extends typeof Boolean ? boolean
+            : C extends typeof Array ? any[]
+              : C extends typeof Object ? Record<string | number, any>
+                : C extends null ? null : never
     )
 
 export type ParseConfigTypeOptions<C extends ConfigTypeOptions> = {
@@ -71,7 +71,7 @@ export function defineConfigs(section: Nullable<string>, configs: object, scope?
     }) as ConfigRef<T>
     ref.update = async (value, configurationTarget, overrideInLanguage) => {
       await workspaceConfig.update(key, value, configurationTarget, overrideInLanguage)
-      ref.value = value
+      data.value = value
     }
     ref.set = (value) => {
       data.value = value

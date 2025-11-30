@@ -1,5 +1,10 @@
-import { type MaybeRefOrGetter, toValue, watchEffect } from '@reactive-vscode/reactivity'
+import type { MaybeRefOrGetter } from '@reactive-vscode/reactivity'
+import { toValue, watchEffect } from '@reactive-vscode/reactivity'
 
+/**
+ * Set multiple reactive options on a target object.
+ * @category utilities
+ */
 export function useReactiveOptions<T extends object>(
   target: T,
   options: {

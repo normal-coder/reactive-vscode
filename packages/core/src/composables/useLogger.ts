@@ -13,9 +13,15 @@ export function getDefaultLoggerPrefix(type: string) {
   return `${year}-${month}-${day} ${hour}:${minute}:${second}.${millisecond} [${type}] `
 }
 
+type LoggingType = 'info' | 'warn' | 'error'
+
 export interface UseLoggerOptions {
   outputChannel?: OutputChannel
-  getPrefix?: ((type: string) => string) | null
+  getPrefix?: ((type: LoggingType) => string) | null
+  /**
+   * @default ['error', 'warn']
+   */
+  toConsole?: LoggingType[]
 }
 
 /**
@@ -25,17 +31,22 @@ export interface UseLoggerOptions {
  */
 export function useLogger(name: string, options: UseLoggerOptions = {}) {
   const outputChannel = options.outputChannel ?? useOutputChannel(name, { log: true })
+  const toConsole = options.toConsole ?? ['error', 'warn']
 
-  const createLoggerFunc = (type: string) => (...message: any[]) => {
+  const createLoggerFunc = (type: LoggingType) => (...message: any[]) => {
     outputChannel.appendLine((options.getPrefix?.(type) ?? '') + message.join(' '))
+    if (toConsole.includes(type)) {
+      // eslint-disable-next-line no-console
+      console[type](...message)
+    }
   }
 
   return {
     outputChannel,
     createLoggerFunc,
-    info: createLoggerFunc('INFO'),
-    warn: createLoggerFunc('WARN'),
-    error: createLoggerFunc('ERROR'),
+    info: createLoggerFunc('info'),
+    warn: createLoggerFunc('warn'),
+    error: createLoggerFunc('error'),
     append: outputChannel.append.bind(outputChannel),
     appendLine: outputChannel.appendLine.bind(outputChannel),
     replace: outputChannel.replace.bind(outputChannel),
