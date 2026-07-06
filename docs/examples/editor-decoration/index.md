@@ -7,8 +7,9 @@ outline: false
 一个简单的示例，根据配置为活动编辑器添加装饰。
 
 <ExampleFunctions :fns="[
-  'defineConfigs',
-  'useActiveEditorDecorations',
+  'defineConfig',
+  'useActiveTextEditor',
+  'useEditorDecorations',
 ]" />
 
 ::: code-group

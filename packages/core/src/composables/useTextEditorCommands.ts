@@ -1,12 +1,15 @@
+import type { MaybeRef } from '@reactive-vscode/reactivity'
+import type { commands } from 'vscode'
+import type { Nullable } from '../utils'
 import type { TextEditorCommandCallback } from './useTextEditorCommand'
 import { useTextEditorCommand } from './useTextEditorCommand'
 
 /**
- * 注册多个文本编辑器命令。参见 `vscode::commands.registerTextEditorCommand`。
- *
+ * @reactive {@linkcode commands.registerTextEditorCommand}
  * @category commands
  */
-export function useTextEditorCommands(commands: Record<string, TextEditorCommandCallback>) {
-  for (const [command, callback] of Object.entries(commands))
+export function useTextEditorCommands(commands: Record<string, MaybeRef<Nullable<TextEditorCommandCallback>>>) {
+  for (const [command, callback] of Object.entries(commands)) {
     useTextEditorCommand(command, callback)
+  }
 }

@@ -7,7 +7,7 @@ outline: false
 通过 VSCode Watcher API 监听一组动态的文件。
 
 <ExampleFunctions :fns="[
-  'useFsWatcher',
+  'useFileSystemWatcher',
   'useCommands',
 ]" />
 

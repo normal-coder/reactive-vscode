@@ -20,8 +20,8 @@ export = defineExtension(() => {
 
 `reactive::useEventEmitter` 创建一个友好的事件发射器，它仍然继承自 `vscode::EventEmitter`：
 
-<!-- eslint-disable import/first -->
 ```ts
+/* eslint-disable import/first */
 import type { Event } from 'vscode'
 
 declare function someVscodeApi(options: { onSomeEvent: Event<string> }): void
@@ -31,15 +31,15 @@ import { defineExtension, useEventEmitter } from 'reactive-vscode'
 export = defineExtension(() => {
   const myEvent = useEventEmitter<string>([/* 可选的监听器 */])
 
-  myEvent.addListener((msg) => {
-    console.log(`收到消息：${msg}`)
-  })
-
-  myEvent.fire('Hello, World!')
-
   someVscodeApi({
     onSomeEvent: myEvent.event,
   })
+
+  myEvent.event((msg) => {
+    console.log('Received message:', msg)
+  })
+
+  myEvent.fire('Hello, World!')
 })
 ```
 

@@ -12,38 +12,16 @@ import { defineExtension, useTerminal } from 'reactive-vscode'
 export = defineExtension(() => {
   const {
     terminal,
-    name,
-    processId,
-    creationOptions,
-    exitStatus,
+    state,
+    shellIntegration,
     sendText,
     show,
     hide,
-    state,
   } = useTerminal('My Terminal', '/bin/bash')
 })
 ```
 
-## 创建受控终端 {#create-a-controlled-terminal}
-
-`reactive::useControlledTerminal` 创建一个允许你控制其生命周期的终端。参数与 `vscode::window.createTerminal` 相同。
-
-```ts
-import { defineExtension, useControlledTerminal } from 'reactive-vscode'
-
-export = defineExtension(() => {
-  const {
-    terminal,
-    getIsActive,
-    show,
-    sendText,
-    close,
-    state,
-  } = useControlledTerminal('My Terminal', '/bin/bash')
-})
-```
-
-### 活动终端 {#the-active-terminal}
+### The Active Terminal
 
 你可以使用 `reactive::useActiveTerminal` 来获取当前活动的终端。
 

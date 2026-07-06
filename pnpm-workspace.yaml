@@ -1,3 +1,7 @@
+# eslint-disable pnpm/yaml-enforce-settings
+
+shellEmulator: true
+
 packages:
   - 'packages/*'
   - demo

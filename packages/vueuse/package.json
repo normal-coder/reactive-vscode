@@ -1,7 +1,7 @@
 {
   "name": "@reactive-vscode/vueuse",
   "type": "module",
-  "version": "0.4.1",
+  "version": "1.0.2",
   "description": "Useful VueUse utilities for VSCode extension development",
   "author": "_Kerman <kermanx@qq.com>",
   "license": "MIT",
@@ -40,10 +40,10 @@
     "@reactive-vscode/reactivity": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^24.9.2",
-    "@vueuse/core": "^14.0.0",
-    "typescript": "^5.9.3",
-    "vite": "^7.1.12",
+    "@types/node": "^25.6.0",
+    "@vueuse/core": "^14.2.1",
+    "typescript": "^5.8.2",
+    "vite": "^8.0.8",
     "vite-plugin-dts": "^4.5.4"
   },
   "publishConfig": {

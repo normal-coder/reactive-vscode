@@ -1,14 +1,14 @@
-import type { Commands } from '../utils'
+import type { MaybeRef } from '@reactive-vscode/reactivity'
+import type { commands } from 'vscode'
+import type { Nullable } from '../utils'
 import { useCommand } from './useCommand'
 
 /**
- * 注册多个命令。参见 `vscode::commands.registerCommand`。
- *
+ * @reactive {@linkcode commands.registerCommand}
  * @category commands
  */
-export function useCommands(commands: Partial<Commands>) {
+export function useCommands(commands: Record<string, MaybeRef<Nullable<(...args: any[]) => any>>>) {
   for (const [command, callback] of Object.entries(commands)) {
-    if (callback)
-      useCommand(command, callback)
+    useCommand(command, callback)
   }
 }

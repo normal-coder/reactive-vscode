@@ -47,25 +47,23 @@ export { activate, deactivate }
 
 这里是一个示例：
 
-<!-- eslint-disable import/first -->
 ```ts
-import type { Ref } from 'reactive-vscode'
-/**
- * 通过 `defineConfigs` 定义
- */
-declare const message: Ref<string>
-// ---cut---
-import { defineExtension, useCommand, useIsDarkTheme, useLogger, watchEffect } from 'reactive-vscode'
+import { defineConfig, defineExtension, defineLogger, useCommand, useIsDarkTheme, watchEffect } from 'reactive-vscode'
 import { window } from 'vscode'
 import { useDemoTreeView } from './treeView'
 
+const config = defineConfig<{
+  message: string
+}>('extension-id')
+
+const logger = defineLogger('Reactive VSCode')
+
 export = defineExtension(() => {
-  const logger = useLogger('Reactive VSCode')
-  logger.info('扩展已激活')
+  logger.info('Extension Activated')
   logger.show()
 
   useCommand('reactive-vscode-demo.helloWorld', () => {
-    window.showInformationMessage(message.value)
+    window.showInformationMessage(config.message)
   })
 
   const isDark = useIsDarkTheme()
