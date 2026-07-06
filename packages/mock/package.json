@@ -1,7 +1,7 @@
 {
   "name": "@reactive-vscode/mock",
   "type": "module",
-  "version": "0.4.1",
+  "version": "1.0.2",
   "description": "Mock VSCode API for testing",
   "author": "_Kerman <kermanx@qq.com>",
   "license": "MIT",
@@ -33,12 +33,14 @@
     "typecheck": "echo tsc --noEmit",
     "prepublishOnly": "pnpm typecheck"
   },
+  "peerDependencies": {
+    "vitest": "*"
+  },
   "dependencies": {
-    "vitest": "^4.0.4",
     "vscode-uri": "^3.1.0"
   },
   "devDependencies": {
-    "@types/vscode": "^1.105.0",
-    "typescript": "^5.9.3"
+    "@types/vscode": "^1.115.0",
+    "typescript": "^5.8.2"
   }
 }

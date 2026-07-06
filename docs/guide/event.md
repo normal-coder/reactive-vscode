@@ -20,8 +20,8 @@ export = defineExtension(() => {
 
 `reactive::useEventEmitter` creates a friendly event emitter which still extends `vscode::EventEmitter`:
 
-<!-- eslint-disable import/first -->
 ```ts
+/* eslint-disable import/first */
 import type { Event } from 'vscode'
 
 declare function someVscodeApi(options: { onSomeEvent: Event<string> }): void
@@ -31,15 +31,15 @@ import { defineExtension, useEventEmitter } from 'reactive-vscode'
 export = defineExtension(() => {
   const myEvent = useEventEmitter<string>([/* optional listenrs */])
 
-  myEvent.addListener((msg) => {
-    console.log(`Received message: ${msg}`)
-  })
-
-  myEvent.fire('Hello, World!')
-
   someVscodeApi({
     onSomeEvent: myEvent.event,
   })
+
+  myEvent.event((msg) => {
+    console.log('Received message:', msg)
+  })
+
+  myEvent.fire('Hello, World!')
 })
 ```
 
