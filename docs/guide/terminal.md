@@ -21,7 +21,7 @@ export = defineExtension(() => {
 })
 ```
 
-### The Active Terminal
+### 活动终端 {#the-active-terminal}
 
 你可以使用 `reactive::useActiveTerminal` 来获取当前活动的终端。
 
