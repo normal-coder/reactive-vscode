@@ -52,7 +52,7 @@ async function getComposableMetadata(filename: string): Promise<FunctionMetadata
   const _md = existsSync(mdPath) ? await fs.readFile(mdPath, 'utf-8') : undefined // TODO: md
   const original = getOriginalAPI(ts)
   const category = getCategory(ts) ?? (original ? toCategoryName(original[0]) : undefined)
-  const description = getDescription(ts) || (original ? `Reactive API for ${original.map(o => `\`vscode::${o}\``).join(', ')}.` : undefined)
+  const description = getDescription(ts) || (original ? `对 ${original.map(o => `\`vscode::${o}\``).join(', ')} 的响应式 API。` : undefined)
   return {
     name,
     category,
