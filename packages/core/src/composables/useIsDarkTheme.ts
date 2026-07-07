@@ -5,7 +5,7 @@ import { defineService } from '../utils'
 import { useActiveColorTheme } from './useActiveColorTheme'
 
 /**
- * Determines if the current color theme is dark.
+ * 判断当前颜色主题是否为深色主题。
  *
  * @see {@linkcode ColorTheme.kind}
  * @category window

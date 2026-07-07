@@ -102,7 +102,7 @@ export interface QuickPickProps<T extends QuickPickItem> extends QuickInputOptio
 }
 
 /**
- * Creates a customizable quick pick UI.
+ * 创建一个可自定义的快速选择 UI。
  *
  * @reactive {@linkcode window.createQuickPick}
  */

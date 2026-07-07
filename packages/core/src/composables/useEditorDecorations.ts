@@ -22,7 +22,7 @@ export interface UseEditorDecorationsOptions {
 }
 
 /**
- * Reactively set decorations on the given editor.
+ * 响应式地设置给定编辑器上的装饰。
  *
  * @see {@linkcode TextEditor.setDecorations}
  * @category editor
